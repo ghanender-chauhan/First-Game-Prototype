@@ -4,23 +4,23 @@ import random
 import pygame
 from pygame import mixer
 
-# Intialize the pygame
+
 pygame.init()
 
-# create the screen
+
 screen = pygame.display.set_mode((1000,650))
 
-# Background
+
 background = pygame.image.load('Sprites/back.jpg')
 
-# Sound
 
-# Caption and Icon
+
+
 pygame.display.set_caption("SKOOL")
 icon = pygame.image.load('Sprites/character.png')
 pygame.display.set_icon(icon)
 
-# Player
+
 playerImg = pygame.image.load('Sprites/character.png')
 playerX = 200
 playerY = 200
@@ -31,19 +31,19 @@ playerY_change = 0
 def player(x, y):
     screen.blit(playerImg, (x, y))
 
-# Game Loop
+
 running = True
 while running:
 
-    # RGB = Red, Green, Blue
+    
     screen.fill((0, 0, 0))
-    # Background Image
+    
     screen.blit(background, (0, 0))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-        # if keystroke is pressed check whether its right or left
+        
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 playerX_change = -1.5
@@ -62,8 +62,6 @@ while running:
             if event.key == pygame.K_DOWN or event.key == pygame.K_UP:
                 playerY_change = 0    
 
-    # 5 = 5 + -0.1 -> 5 = 5 - 0.1
-    # 5 = 5 + 0.1
 
     playerX += playerX_change
     if playerX <= 0:
@@ -80,5 +78,5 @@ while running:
 
   
     player(playerX, playerY)
-    # show_score(textX, testY)
+    
     pygame.display.update()
